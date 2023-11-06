@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interphase</title>
+    <style>
+        body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+nav {
+  float: right;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+main {
+  margin-top: 10px;
+}
+
+section {
+  padding: 20px;
+}
+
+aside {
+  background-color: #fff;
+  border-left: 1px solid #ccc;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  padding: 10px;
+}
+
+    </style>
+</head>
+<header>
+    <h1>Bienvenue </h1>
+    <nav>
+      <a href="#">Accueil</a>
+      <a href="#">À propos</a>
+      <a href="#">Contact</a>
+    </nav>
+</header>
+  <main>
+    <section>
+      <h2>Contenu principal</h2>
+      <p>Ceci est le contenu principal de la page.</p>
+    </section>
+  </main>
+  <aside>
+    <ul>
+      <li>Option 1</li>
+      <li>Option 2</li>
+      <li>Option 3</li>
+    </ul>
+  </aside>
+  <script>
+    // Fonction pour afficher ou masquer la sidebar
+function toggleSidebar() {
+  document.querySelector("aside").classList.toggle("active");
+}
+
+// Événement click sur le bouton d'affichage de la sidebar
+document.querySelector(".sidebar-btn").addEventListener("click", toggleSidebar);
+
+  </script>
+</body>
+
+</html>
