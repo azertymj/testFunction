@@ -1,8 +1,6 @@
-
 <?php
 $error = isset($_GET["error"]) ? $_GET["error"] :"";
 $password= isset($_GET["password"]) ? $_GET["password"] :"";
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,6 +36,10 @@ $password= isset($_GET["password"]) ? $_GET["password"] :"";
 
         case "3":
           echo "Session deconnecté";
+          break;
+
+        case "4":
+          echo "Le type d'utilisateur : $tp n'a pas été trouvé";
           break;
     }  
 

@@ -1,0 +1,54 @@
+<?php
+// Paramètres de connexion à la base de données
+$servername = "localhost";
+$username = "votre_nom_d_utilisateur";
+$password = "votre_mot_de_passe";
+$dbname = "nom_de_votre_base_de_donnees";
+
+// Créer une connexion
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Vérifier la connexion
+if ($conn->connect_error) {
+    die("Connexion échouée: " . $conn->connect_error);
+}
+
+session_start();
+
+
+
+// Vérifier si l'utilisateur a soumis des informations de connexion
+if (isset($_POST["name"]) && isset($_POST["password"])) {
+    $name = $_POST["name"];
+    $password = $_POST["password"];
+
+    // Requête SQL pour récupérer les informations de l'utilisateur et son type
+    $sql = "SELECT u.nom, u.prenom, ut.type_name 
+            FROM users u
+            JOIN user_types ut ON u.user_type_id = ut.id
+            WHERE u.nom='$name' AND u.password='$password'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $user_type = $row["type_name"];
+            switch ($user_type) {
+                case "type1":
+                    header('Location: page_type_1.php');
+                    break;
+                case "type2":
+                    header('Location: page_type_2.php');
+                    break;
+                case "type3":
+                    header('Location: page_type_3.php');
+                    break;
+            }
+        }
+    } else {
+        header('Location: session.php?error=1');
+    }
+}
+
+// Fermer la connexion
+$conn->close();
+?>
